@@ -3,7 +3,7 @@
     <div class="mainclass">
         <div class="box">
             <h2 class="commonfont">Common Class input/select</h2>
-            
+   
          <div class="commonloader">
             <div class="commonloader-spinner"></div>
             <img :src="iconUrl" class="commonloader-img" />
