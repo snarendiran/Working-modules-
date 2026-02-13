@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&display=swap');
+
+
+:root{
+    --bg-color: #ffffff;
+    --surface-color: #f9f9f9;
+    --text-color: #333333;
+    --text-muted: #666666;
+    --border-color: #dcdcdc;
+    --primary: #1c355e;
+    --primary-hover: #00ae42;
+    --focus-outline: #00ae42;
+    --selection-bg: #eef2ff;
+    --input-bg: #ffffff;
+    --table-stripe: #eef1fd;
+    --loader-gradient: linear-gradient(110deg, #0000, #ffffffcc 22%, #e6e6e6 30%, #0000 44%);
+}
+
+body.blue-theme{
+    --bg-color: #0f172a;        
+    --surface-color: #1e293b;   
+    --text-color: #f8fafc;     
+    --text-muted: #94a3b8;     
+    --border-color: #334155;   
+    --primary: #38bdf8;       
+    --primary-hover: #22c55e;  
+    --focus-outline: #22c55e;  
+    --selection-bg: #1e40af;   
+    --input-bg: #344265;       
+    --table-stripe: #1e293b80; 
+    --loader-gradient: linear-gradient(
+        110deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.05) 20%, 
+        rgba(255, 255, 255, 0.1) 40%, 
+        rgba(255, 255, 255, 0) 60%
+    );
+}
+
+body.dark {
+    --bg-color: #1a1a1a;
+    --surface-color: #242424;
+    --text-color: #eeeeee;
+    --text-muted: #aaaaaa;
+    --border-color: #444444;
+    --primary: #00ae42; 
+    --primary-hover: #00ae42;
+    --focus-outline: #00ae42;
+    --selection-bg: #15924549;
+    --input-bg: #2a2a2a;
+    --table-stripe: #022d0b;
+    --loader-gradient: linear-gradient(110deg, #0000, #ffffff11 22%, #444 30%, #0000 44%);
+}
+
+body.plesent {
+    --bg-color: #ffffff;
+    --surface-color: #f0f4ff;
+    --text-color: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --primary: #7c3aed;         
+    --primary-hover: #06b6d4;   
+    --focus-outline: #06b6d4;
+    --selection-bg: #ede9fe; 
+    --input-bg: #ffffff;
+    --table-stripe: #f5f3ff;
+    --loader-gradient: linear-gradient(110deg, #ece9fe 8%, #ddd6fe 18%, #ece9fe 33%);
+}
+
+body.warm {
+    --bg-color: #fffcf9;        
+    --surface-color: #fcf5ed;  
+    --text-color: #433422;     
+    --text-muted: #8c7861;      
+    --border-color: #eaddcf;  
+    --primary: #d97706;        
+    --primary-hover: #92400e;  
+    --focus-outline: #f59e0b;  
+    --selection-bg: #fef3c7;   
+    --input-bg: #ffffff;
+    --table-stripe: #fbf2e9;
+    --loader-gradient: linear-gradient(110deg, #f3e8dc 8%, #eaddcf 18%, #f3e8dc 33%);
+}
+/* --- 2. Global & Typography --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, div, span, label, section, input, select, button, p, li {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* --- 3. Inputs & Selects --- */
+.commoninput, .commonselect {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: border-color 0.2s;
+}
+
+.commonselect { width: 232px; }
+
+.commoninput:focus, .commonselect:focus {
+    border-color: var(--focus-outline);
+}
+
+.commonsearch-wrapper { position: relative; width: 200px; }
+
+.commondropdown-list {
+    position: absolute;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--text-color);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+    border-radius: 0 0 8px 8px;
+}
+
+.commondropdown-list li { 
+    padding: 8px; 
+    cursor: pointer; 
+}
+
+.commondropdown-list li:hover { 
+    background-color: var(--table-stripe); 
+}
+
+/* --- 4. Buttons --- */
+.commonbtn {
+    background-color: var(--primary);
+    padding: 13px 20px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.commonbtn:hover {
+    background: var(--primary-hover);
+}
+
+.confirmbtn {
+    margin: 10px 5px;
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- 5. Checkboxes & Radio --- */
+.commoncheckbox {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--input-bg);
+    cursor: pointer;
+    display: inline-grid;
+    place-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.commoncheckbox::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: var(--primary);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.commoncheckbox:checked {
+    border-color: var(--primary);
+    background-color: var(--selection-bg);
+}
+
+.commoncheckbox:checked::before { transform: scale(1); }
+
+.commoncheckbox:hover {
+	border-color: #1c355e;
+}
+
+.commoncheckbox:focus {
+	outline: 2px solid #c7d2fe;
+	outline-offset: 2px;
+}
+
+.commonradio-group { display: flex; }
+.commonradio-group input[type="radio"] { display: none; }
+
+.commonradio-group label {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin: 5px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.radio-dot {
+    height: 18px;
+    width: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    margin-right: 12px;
+    position: relative;
+}
+
+.commonradio-group input[type="radio"]:checked + label {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--selection-bg);
+}
+
+.commonradio-group input[type="radio"]:checked + label .radio-dot {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.radio-dot::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 8px; height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.commonradio-group input[type="radio"]:checked + label .radio-dot::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* --- 6. Tables --- */
+
+.icon-wrapper {
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  cursor: pointer;
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.icon-wrapper.is-active {
+  transform: rotate(180deg); /* Rotates the arrow when open */
+}
+
+.commontbls {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-collapse: collapse;
+    color: var(--text-color);
+}
+
+.commontbls th {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    font-weight: 600;
+    background-color: var(--primary);
+    color: white;
+}
+
+.commontbls td {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.commontbls tr:nth-child(even) {
+    background-color: var(--table-stripe);
+}
+
+/* --- 7. Alerts & Loaders --- */
+
+.comalertcross{
+  right: 10px;
+  top: 10px;
+  position: absolute;
+  margin-right: 10px;
+  font-weight: 600;
+  color: rgb(197, 193, 193);
+  cursor: pointer;
+}
+
+.commonalert {
+    width: 300px;
+    margin: 20px auto;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+	position: relative;
+    border-radius: 8px;
+    text-align: center;
+    background: var(--input-bg);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.comalerttext {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.commonpro-loader {
+    width: 320px; 
+    border-radius: 18px; 
+    border: 1px solid var(--border-color);
+    background: var(--input-bg); 
+    box-shadow: 0 6px 21px rgba(0,0,0,0.1); 
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+.commonpro-top {
+    display: flex; gap: 10px; padding: 12px; align-items: center;
+    border-bottom: 1px solid var(--border-color); 
+    background: var(--surface-color);
+}
+
+.commonpro-dot { width: 10px; height: 10px; border-radius: 50%; }
+.commonpro-dot:nth-child(1), .commonpro-dot:nth-child(3) { background: var(--primary); }
+.commonpro-dot:nth-child(2) { background: var(--primary-hover); }
+
+.commonpro-body { padding: 16px 14px 14px; }
+
+.commonpro-row {
+    height: 12px; border-radius: 10px; 
+    background: var(--border-color); 
+    margin: 10px 0;
+    position: relative; overflow: hidden;
+    opacity: 0.5;
+}
+
+.commonpro-row::before {
+    content: ""; position: absolute; inset: -40% -60%;
+    background: var(--loader-gradient);
+    animation: cp-move 1.15s cubic-bezier(.2,.8,.2,1) infinite;
+}
+
+.commonpro-load {
+    margin-top: 14px; display: flex; gap: 6px; 
+    font-weight: 500; color: var(--text-color);
+}
+
+@keyframes cp-move { from { transform: translateX(-70%); } to { transform: translateX(70%); } }
+
+
+.commonloader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.commonloader-spinner {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border: 6px solid #e5e7eb;      
+  border-top: 6px solid var(--primary);  
+  border-radius: 50%;
+  animation: commonloaderSpin 1s linear infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+ background-color: white;
+
+}
+
+
+.commonloader-img {
+  width: 50px;
+  animation: fadein 1.5s ease-in-out infinite;
+}
+
+@keyframes fadein {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+/* Rotation animation */
+@keyframes commonloaderSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
